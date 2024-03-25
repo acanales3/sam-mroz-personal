@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaBars, FaLinkedin, FaTimes } from "react-icons/fa";
-import {
-  BsFillPersonLinesFill,
-  BsReverseLayoutTextSidebarReverse,
-} from "react-icons/bs";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Nav = () => {
   const [toggle, setToggle] = useState(false);
