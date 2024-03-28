@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Button } from "./ui/button";
 
 const Nav = () => {
   const [toggle, setToggle] = useState(false);
@@ -8,27 +9,27 @@ const Nav = () => {
   const refreshClick = () => setToggle(!toggle);
 
   return (
-    <div className="sticky top-0 w-full h-[80px] flex md:justify-center items-center px-4 bg-[#22c55e] text-[#000000] text-xl font-semibold z-10 border-b-4 border-black">
-      <ul className="hidden md:flex">
-        <a href="/" className="px-4">
-          <li>Home</li>
-        </a>
-        <a href="/about" className="px-4">
-          <li>About Me</li>
-        </a>
-        <a href="/work" className="px-4">
-          <li>Work</li>
-        </a>
-        <a href="/academics" className="px-4">
-          <li>Academics</li>
-        </a>
-        <a href="/contact" className="px-4">
-          <li>Contact Me</li>
-        </a>
+    <nav className="sticky top-0 z-10 flex h-[80px] w-full items-center border-b border-black bg-primary px-4 text-xl font-semibold md:justify-center">
+      <ul className="hidden items-center gap-8 md:flex">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/about">About Me</a>
+        </li>
+        <li>
+          <a href="/work">Work</a>
+        </li>
+        <li>
+          <a href="/academics">Academics</a>
+        </li>
+        <li>
+          <a href="/contact">Contact me</a>
+        </li>
       </ul>
 
-      <div onClick={handleClick} className="md:hidden z-10">
-        {!toggle ? <FaBars></FaBars> : <FaTimes></FaTimes>}
+      <div onClick={handleClick} className="z-10 md:hidden">
+        {!toggle ? <FaBars /> : <FaTimes />}
       </div>
 
       <motion.div
@@ -39,7 +40,7 @@ const Nav = () => {
           className={
             !toggle
               ? "hidden"
-              : "absolute top-0 left-0 w-full h-screen bg-[#22c55e] flex flex-col justify-center items-center"
+              : "absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center bg-primary"
           }
         >
           <a href="/">
@@ -69,7 +70,7 @@ const Nav = () => {
           </a>
         </ul>
       </motion.div>
-    </div>
+    </nav>
   );
 };
 

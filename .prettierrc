@@ -2,5 +2,16 @@
   "tabWidth": 2,
   "useTabs": false,
   "trailingComma": "all",
-  "semi": true
+  "semi": true,
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  "tailwindConfig": "tailwind.config.mjs",
+  "tailwindFunctions": ["clsx"],
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ]
 }

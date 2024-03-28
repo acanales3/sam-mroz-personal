@@ -1,7 +1,47 @@
 ---
 import MainLayout from "../layouts/main-layout.astro";
+
+import { QuadGridThing } from "@/components/quad-grid-thing";
+import type React from "react";
+
+const gridItems: React.ComponentProps<typeof QuadGridThing>["items"] = [
+  {
+    content:
+      "Founded in 2019, Katch was developed by leaders at the intersection of data science, technology and entertainment. Combining a scientific perspective on content identity and descriptive narrative themes, with global customer preference signals, Katch has partnered with Warner Bros. Discovery, Sony, Paramount, AMC +, and Meta among major entertainment brands ",
+    title: "Katch Data",
+    img: "https://as2.ftcdn.net/v2/jpg/00/58/78/25/1000_F_58782554_iuhH6kivjt3WdoVXkPeRqhLzEvqWQmny.jpg",
+  },
+  {
+    content:
+      "VYRE Network is a free streaming platform that delivers next-generation movies, shows, and sports to audiences worldwide. Available on Apple TV, Roku, Amazon Fire Stick, Android, iPhone, Samsung TVs, and on the web, across 7 niche channels, viewers can access live events, feature films, TV series, documentaries, and sports leagues.",
+    title: "VYRE Network",
+    img: "https://as2.ftcdn.net/v2/jpg/00/58/78/25/1000_F_58782554_iuhH6kivjt3WdoVXkPeRqhLzEvqWQmny.jpg",
+  },
+  {
+    content:
+      "Since 1923 DePaul's award-winning College Newspaper has delivered timely stories through weekly publications, covering sections in news, entertainment, sports, opinions, and culture. Delivered to DePaul's faculty, student body, and Chicago-based readership, articles are accessible on both print and digital platforms ",
+    title: "The DePaulia",
+    img: "https://as2.ftcdn.net/v2/jpg/00/58/78/25/1000_F_58782554_iuhH6kivjt3WdoVXkPeRqhLzEvqWQmny.jpg",
+  },
+  {
+    content:
+      "Named the Best College Radio Station in 2020, Radio DePaul hosts student voices in the discussion of insightful, constructive, and innovative conversations. Airing over 50 shows across DePaul's Loop and Lincoln Park campus, viewers can tune in to their favorite episodes every week through the Radio DePaul website or mobile app.",
+    title: "Radio DePaul",
+    img: "https://as2.ftcdn.net/v2/jpg/00/58/78/25/1000_F_58782554_iuhH6kivjt3WdoVXkPeRqhLzEvqWQmny.jpg",
+  },
+];
 ---
 
 <MainLayout title="Sam Mroz Portfolio & Work">
-    <h1>Work</h1>
+  <div class="flex flex-col gap-8">
+    <QuadGridThing client:load items={gridItems} />
+    <section class="flex flex-col gap-2">
+      <h1 class="text-4xl font-bold">Certifications</h1>
+      <ul class="pl-8 list-disc">
+        <li class="text-lg">Google Analytics</li>
+        <li class="text-lg">Content Marketing (HubSpot)</li>
+        <li class="text-lg">SEO Certified (Perfect Search Media)</li>
+      </ul>
+    </section>
+  </div>
 </MainLayout>
