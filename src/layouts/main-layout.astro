@@ -1,5 +1,5 @@
 ---
-const { title } = Astro.props;
+const { title, className } = Astro.props;
 
 import "@/styles/globals.css";
 import Nav from "@/components/nav.tsx";
@@ -12,11 +12,21 @@ import { cn } from "@/lib/utils";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Sam Mroz" />
     <meta title={title} />
+    <!-- https://fonts.google.com/specimen/Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen">
     <Nav client:load />
     <main
-      class="px-4 py-2 sm:px-16 sm:py-4 md:px-32 lg:px-64 lg:py-8 xl:px-80 2xl:px-96"
+      class={cn(
+        "flex flex-col grow px-2 py-2 sm:px-4 sm:py-4 md:px-8 lg:px-16 lg:py-8 xl:px-32 2xl:px-64",
+        className,
+      )}
     >
       <slot />
     </main>

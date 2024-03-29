@@ -1,11 +1,11 @@
-import type React from "react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface QuadGridItem {
-  content: React.ReactNode;
+  content: string[];
   title: string;
+  link: string;
   img: string;
 }
 
@@ -25,21 +25,35 @@ export function QuadGridThing(props: QuadGridThingProps) {
 
   return (
     <section className="grid grid-cols-2 gap-4">
-      <div className="flex flex-col gap-2 self-center">
-        <h1 className="text-3xl font-bold">
-          {props.items[selectedItemIndex].title}
+      <div className="flex flex-col gap-4">
+        <h1 className="w-fit self-center border-b border-primary text-center text-6xl font-bold">
+          <a href={props.items[selectedItemIndex].link} target="_blank">
+            {props.items[selectedItemIndex].title}
+          </a>
         </h1>
-        <p>{props.items[selectedItemIndex].content}</p>
+        <span className="flex flex-col gap-4 indent-10 text-2xl">
+          {props.items[selectedItemIndex].content.map((content) => (
+            <p>{content}</p>
+          ))}
+        </span>
+        <h1 className="w-fit self-center border-b border-primary text-center text-4xl font-semibold">
+          My Role
+        </h1>
+        <span className="flex flex-col gap-4 indent-10 text-2xl">
+          {props.items[selectedItemIndex].content.map((content) => (
+            <p>{content}</p>
+          ))}
+        </span>
       </div>
       <div className="grid aspect-square grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-2">
         {props.items.map((item, index) => (
           <Button
             className={cn(
-              "grid aspect-square h-full w-full place-items-center object-contain text-3xl font-bold shadow-sm shadow-muted-foreground sm:h-[90%] sm:w-[90%]",
+              "grid aspect-square h-full w-full place-items-center object-contain text-3xl font-bold text-primary shadow-sm shadow-muted-foreground",
               indexSpecificClasses[index],
             )}
             style={{
-              objectFit: "cover",
+              backgroundSize: "cover",
               backgroundImage: `url('${item.img}')`,
             }}
             onClick={() => setSelectedItemIndex(index)}

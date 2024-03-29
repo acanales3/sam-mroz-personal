@@ -1,30 +1,44 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
 
-const Nav = () => {
+function Nav() {
   const [toggle, setToggle] = useState(false);
   const handleClick = () => setToggle(!toggle);
   const refreshClick = () => setToggle(!toggle);
 
   return (
-    <nav className="sticky top-0 z-10 flex h-[80px] w-full items-center border-b border-black bg-primary px-4 text-xl font-semibold md:justify-center">
-      <ul className="hidden items-center gap-8 md:flex">
+    <nav className="sticky top-0 z-10 flex h-[80px] w-full items-center border-b border-primary bg-zinc-50 px-4 text-xl font-semibold md:justify-center">
+      <ul className="hidden items-center gap-4 md:flex">
         <li>
-          <a href="/">Home</a>
+          <a href="/" className="decoration-primary hover:underline">
+            Home
+          </a>
         </li>
+        <Separator className="h-5" orientation="vertical" />
         <li>
-          <a href="/about">About Me</a>
+          <a href="/about" className="decoration-primary hover:underline">
+            About Me
+          </a>
         </li>
+        <Separator className="h-5" orientation="vertical" />
         <li>
-          <a href="/work">Work</a>
+          <a href="/work" className="decoration-primary hover:underline">
+            Work
+          </a>
         </li>
+        <Separator className="h-5" orientation="vertical" />
         <li>
-          <a href="/academics">Academics</a>
+          <a href="/academics" className="decoration-primary hover:underline">
+            Academics
+          </a>
         </li>
+        <Separator className="h-5" orientation="vertical" />
         <li>
-          <a href="/contact">Contact me</a>
+          <a href="/contact" className="decoration-primary hover:underline">
+            Contact me
+          </a>
         </li>
       </ul>
 
@@ -72,6 +86,6 @@ const Nav = () => {
       </motion.div>
     </nav>
   );
-};
+}
 
 export default Nav;

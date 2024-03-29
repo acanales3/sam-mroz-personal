@@ -1,7 +1,71 @@
 ---
+import { Separator } from "@/components/ui/separator";
 import MainLayout from "../layouts/main-layout.astro";
 ---
 
 <MainLayout title="Sam Mroz Academic Career">
-  <h1>Academics</h1>
+  <div class="flex flex-col gap-8">
+    <div class="grid grid-cols-2">
+      <section class="flex flex-col gap-2">
+        <span class="flex gap-3 items-center">
+          <Separator className="h-12 bg-primary" orientation="vertical" />
+          <h1 class="text-6xl font-bold">Transcript</h1>
+        </span>
+        <a href="transcript.pdf" download="sam-mroz-transcript">
+          Click to download
+        </a>
+      </section>
+      <!-- <Separator class="h-16" orientation="vertical" /> -->
+      <section class="flex flex-col gap-2 place-self-end">
+        <span class="flex gap-3 items-center">
+          <Separator className="h-12 bg-primary" orientation="vertical" />
+          <h1 class="text-6xl font-bold">Accolades</h1>
+        </span>
+        <ul class="list-disc pl-6 text-lg">
+          <li>Deans List All Quarters</li>
+          <li>Presidential Scholarship Recipient</li>
+        </ul>
+      </section>
+    </div>
+    <Separator />
+    <section class="flex flex-col gap-4">
+      <span class="flex gap-2 items-center">
+        <Separator className="h-8 bg-primary" orientation="vertical" />
+        <h1 class="text-3xl font-bold">Relevant Course Work</h1>
+      </span>
+      <section class="flex flex-col gap-2 pl-2">
+        <h1 class="text-xl font-semibold">Multimedia Courses</h1>
+        <Separator />
+        <ul class="list-disc pl-6">
+          <li>Adobe Creative Cloud Workshops: Audition, InDesign</li>
+          <li>News Reporting</li>
+          <li>Online Reporting and Production</li>
+          <li>Podcasting</li>
+          <li>On Air Interviewing</li>
+        </ul>
+      </section>
+      <section class="flex flex-col gap-2 pl-2">
+        <h1 class="text-xl font-semibold">Analytics Courses</h1>
+        <Separator />
+        <ul class="list-disc pl-6">
+          <li>Business Analytics</li>
+          <li>Social Media Analytics</li>
+          <li>Data Analysis</li>
+          <li>Intro to Computational Reasoning</li>
+        </ul>
+      </section>
+      <section class="flex flex-col gap-2 pl-2">
+        <h1 class="text-xl font-semibold">Film/TV Studies Courses</h1>
+        <Separator />
+        <ul class="list-disc pl-6">
+          <li>Media and Cultural Studies</li>
+          <li>Beyond Parasite: South Korea through Film</li>
+          <li>Media Ethics</li>
+          <li>History of Television and Radio</li>
+          <li>Latin American and Latin Film</li>
+          <li>Script to Screen</li>
+        </ul>
+      </section>
+    </section>
+  </div>
 </MainLayout>
