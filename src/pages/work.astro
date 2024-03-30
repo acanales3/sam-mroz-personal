@@ -55,7 +55,8 @@ const gridItems = [
       "Airing over 50 shows across DePaul's Loop and Lincoln Park campus, viewers can tune in to their favorite episodes every week through the Radio DePaul website or mobile app.",
     ],
     role: [
-      "Host of The Most Valuable Picture and The Preview, two weekly podcasts dedicated to media insights, trending news coverage, historical record, and personal commentary.",
+      // this inline html is so cringe but it works
+      'Host of <a href="https://open.spotify.com/show/2vaLPqyzBY5hWS5nUPfoqZ?si=ce09e2c891ef40e8" target="_blank" class="underline decoration-primary">The Most Valuable Picture</a> and <a href="https://open.spotify.com/show/1vRAkMPkn1iUQloiTNlYD4?si=5e4dd35e319d4850" target="_blank" class="underline decoration-primary">The Preview</a>, two weekly podcasts dedicated to media insights, trending news coverage, historical record, and personal commentary.',
       "Edit audio for podcast uploads, adding sound effects, intro and outro music, audio leveling and additional maintenance to ensure fluid recordings while maintaining adjoining social feeds.",
       "Engineer DePaul's Radio network through weekday to weekend productions, maintaining proper sound levels and transmissions across two college campuses, a website, and an active mobile app.",
     ],
@@ -93,7 +94,7 @@ const gridItems = [
               </h1>
               <ul class="flex list-disc flex-col gap-4 pl-6 text-xl">
                 {item.role.map((content) => (
-                  <li>{content}</li>
+                  <li set:html={content} />
                 ))}
               </ul>
             </FocusableGrid.Content>

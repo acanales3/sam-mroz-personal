@@ -9,7 +9,7 @@ function Nav() {
   const refreshClick = () => setToggle(!toggle);
 
   return (
-    <nav className="sticky top-0 z-10 flex h-[80px] w-full items-center border-b border-primary bg-zinc-50 px-4 text-xl font-semibold md:justify-center">
+    <nav className="sticky top-0 z-10 flex h-20 w-full items-center border-b border-primary bg-zinc-50 px-4 text-xl font-semibold md:justify-center">
       <ul className="hidden items-center gap-4 md:flex">
         <li>
           <a href="/" className="decoration-primary hover:underline">
