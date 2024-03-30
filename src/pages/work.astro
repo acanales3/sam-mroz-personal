@@ -70,8 +70,8 @@ const gridItems = [
 
 <MainLayout title="Sam Mroz Portfolio & Work">
   <div class="flex flex-col gap-8">
-    <FocusableGrid className="grid-cols-1 md:grid-cols-2">
-      <FocusableGrid.Contents>
+    <FocusableGrid className="flex flex-col gap-4 md:flex-row">
+      <FocusableGrid.Contents className="basis-1/2">
         {
           gridItems.map((item, index) => (
             <FocusableGrid.Content
@@ -101,21 +101,18 @@ const gridItems = [
           ))
         }
       </FocusableGrid.Contents>
-      <FocusableGrid.Tiles className="grid-cols-1 md:grid-cols-2">
+      <FocusableGrid.Tiles className="basis-1/2 grid-cols-1 md:grid-cols-2">
         {
           gridItems.map((item, index) => (
             <FocusableGrid.Tile
               className={cn(
-                "aspect-square bg-transparent transition-transform duration-300 hover:scale-[1.01] hover:bg-transparent",
-                item.classes,
+                "bg-transparent shadow-none transition-transform duration-300 hover:scale-[1.01] hover:bg-transparent",
               )}
               index={index}
-              style={{
-                backgroundSize: "cover",
-                backgroundImage: `url('${item.img}')`,
-              }}
               client:load
-            />
+            >
+              <img class="aspect-square object-cover" src={item.img} />
+            </FocusableGrid.Tile>
           ))
         }
       </FocusableGrid.Tiles>
