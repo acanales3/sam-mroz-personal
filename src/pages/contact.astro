@@ -1,7 +1,83 @@
 ---
+import { Button } from "@/components/ui/button";
 import MainLayout from "../layouts/main-layout.astro";
+import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { EmailForm } from "@/components/email-form";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 ---
 
-<MainLayout title="Contact Sam Mroz">
-  <h1>Contact me</h1>
+<MainLayout title="Contact Sam Mroz" className="items-center justify-center">
+  <section class="flex flex-col gap-16 sm:flex-row">
+    <img
+      src="/Sam_Second_Pic.jpg"
+      class="w-[40rem] justify-self-center rounded-lg shadow-sm shadow-muted-foreground sm:justify-self-end"
+    />
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-2">
+        <h1 class="text-3xl font-bold xl:text-4xl 2xl:text-6xl">Contact Me</h1>
+        <p class="text-muted-foreground">
+          Feel free to reach out through email, phone, or LinkedIn! Afterward, I
+          offer this drawing of me with a man-bun (I no longer have said
+          man-bun)
+        </p>
+      </div>
+      <div class="flex flex-col gap-8">
+        <EmailForm client:load />
+        <div class="flex flex-col gap-4">
+          <h2 class="text-2xl font-semibold md:text-3xl">Socials</h2>
+          <div class="flex flex-col gap-4">
+            <div class="grid grid-cols-3 gap-4">
+              <a
+                href="https://www.linkedin.com/in/samuel-mroz-458410219/"
+                target="_blank"
+              >
+                <Button
+                  className="flex w-full items-center gap-2 bg-blue-500 hover:bg-blue-600"
+                >
+                  LinkedIn <FaLinkedin size={16} />
+                </Button>
+              </a>
+              <a href="https://twitter.com/sammroz" target="_blank">
+                <Button
+                  className="flex w-full items-center gap-2 bg-blue-400 hover:bg-blue-500"
+                >
+                  Twitter <FaTwitter size={16} />
+                </Button>
+              </a>
+              <a href="https://www.instagram.com/sammythejoe/" target="_blank">
+                <Button
+                  className="flex w-full items-center gap-2 bg-red-500 hover:bg-red-600"
+                >
+                  Instagram <FaInstagram size={16} />
+                </Button>
+              </a>
+            </div>
+            <Separator />
+            <div class="grid grid-cols-3 gap-4 text-center">
+              <span class="flex flex-col gap-1 text-xl">
+                <Label className="text-base text-muted-foreground">
+                  School Email
+                </Label>
+                smroz@depaul.edu
+              </span>
+
+              <span class="flex flex-col gap-1 text-xl">
+                <Label className="text-base text-muted-foreground">
+                  Personal Email
+                </Label>
+                <p>samthejoe@gmail.com</p>
+              </span>
+              <span class="flex flex-col gap-1 text-xl">
+                <Label className="text-base text-muted-foreground">
+                  Phone Number
+                </Label>
+                +1 (317) 617-5507
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </MainLayout>

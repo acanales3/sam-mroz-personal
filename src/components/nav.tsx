@@ -13,12 +13,6 @@ function Nav() {
       <ul className="hidden items-center gap-4 md:flex">
         <li>
           <a href="/" className="decoration-primary hover:underline">
-            Home
-          </a>
-        </li>
-        <Separator className="h-5" orientation="vertical" />
-        <li>
-          <a href="/about" className="decoration-primary hover:underline">
             About Me
           </a>
         </li>

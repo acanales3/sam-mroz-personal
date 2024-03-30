@@ -1,57 +1,128 @@
 ---
+import { FocusableGrid } from "@/components/focusable-grid";
 import MainLayout from "../layouts/main-layout.astro";
 
-import { QuadGridThing } from "@/components/quad-grid-thing";
 import { Separator } from "@/components/ui/separator";
-import type React from "react";
+import { cn } from "@/lib/utils";
 
-const gridItems: React.ComponentProps<typeof QuadGridThing>["items"] = [
+const gridItems = [
   {
-    content: [
+    description: [
       "Founded in 2019, Katch was developed by leaders at the intersection of data science, technology and entertainment.",
       "Combining a scientific perspective on content identity and descriptive narrative themes, with global customer preference signals, Katch has partnered with Warner Bros. Discovery, Sony, Paramount, AMC +, and Meta among major entertainment brands.",
     ],
+    role: [
+      "Established an alumni gallery of over 800 KatchU interns, updating profiles for current work status, filed work logs, alumni relations, and additional company paperwork.",
+      "Evaluated relations with company affiliates such as Paramount, AMC+, Cinedigm, and Warner Bros. Discovery.",
+      "Analyzed film and television plots while marking storytelling qualities such as characters, context, cinematography, and themes, organizing both descriptive and structural metadata into a companywide account.",
+      "Assessed trends in IP farming, foreign markets, social media servers, and shortform video, while suggesting analogs to legacy titles.",
+    ],
     title: "Katch Data",
-    img: "https://as2.ftcdn.net/v2/jpg/00/58/78/25/1000_F_58782554_iuhH6kivjt3WdoVXkPeRqhLzEvqWQmny.jpg",
+    img: "/katchdata_logo.jpeg",
     link: "https://www.katchdata.com/",
   },
   {
-    content: [
+    description: [
       "VYRE Network is a free streaming platform that delivers next-generation movies, shows, and sports to audiences worldwide.",
       "Available on Apple TV, Roku, Amazon Fire Stick, Android, iPhone, Samsung TVs, and on the web, across 7 niche channels, viewers can access live events, feature films, TV series, documentaries, and sports leagues.",
     ],
+    role: [
+      "Distribute a media library of over 12,000 film, television, and documentary titles across 7 distinct channel concentrations that included comedy, drama, action, sports, music, family, and representation.",
+      "Present weekly pitch decks through Microsoft PowerPoint, emphasizing suggestions for content rollout and market strategy on distribution platforms that included Roku, Apple TV, and the Apple Store.",
+      "Correct errors on the storage platforms Box and Dropbox, making edits for date adjustments, editorial notes, itinerary reports, metadata formatting, link threads, and title development.",
+    ],
     title: "VYRE Network",
-    img: "https://as2.ftcdn.net/v2/jpg/00/58/78/25/1000_F_58782554_iuhH6kivjt3WdoVXkPeRqhLzEvqWQmny.jpg",
+    img: "/Vyre_Network.jpeg",
     link: "https://vyrenetwork.com/",
   },
   {
-    content: [
+    description: [
       "Since 1923 DePaul's award-winning College Newspaper has delivered timely stories through weekly publications, covering sections in news, entertainment, sports, opinions, and culture.",
       "Delivered to DePaul's faculty, student body, and Chicago-based readership, articles are accessible on both print and digital platforms.",
     ],
+    role: [
+      "Communicate with staff and contributing writers on pitch ideas for a publication with over 25,000 viewers across DePaul affiliated students and faculty.",
+      "Request imagery for filed stories, contacting illustrators and photographers on design preferences that include text stylization, free hand drawing, color contrast, image captioning, and page layout.",
+      "Collaborate with film majors to produce, edit, and shot a documentary on DePaul's growing film program through different stages of production within student projects, addressing industry prospects alongside creative inspirations.",
+    ],
     title: "The DePaulia",
-    img: "https://as2.ftcdn.net/v2/jpg/00/58/78/25/1000_F_58782554_iuhH6kivjt3WdoVXkPeRqhLzEvqWQmny.jpg",
+    img: "/The_DePaulia.png",
     link: "https://depauliaonline.com/",
   },
   {
-    content: [
+    description: [
       "Named the Best College Radio Station in 2020, Radio DePaul hosts student voices in the discussion of insightful, constructive, and innovative conversations.",
       "Airing over 50 shows across DePaul's Loop and Lincoln Park campus, viewers can tune in to their favorite episodes every week through the Radio DePaul website or mobile app.",
     ],
+    role: [
+      "Host of The Most Valuable Picture and The Preview, two weekly podcasts dedicated to media insights, trending news coverage, historical record, and personal commentary.",
+      "Edit audio for podcast uploads, adding sound effects, intro and outro music, audio leveling and additional maintenance to ensure fluid recordings while maintaining adjoining social feeds.",
+      "Engineer DePaul's Radio network through weekday to weekend productions, maintaining proper sound levels and transmissions across two college campuses, a website, and an active mobile app.",
+    ],
     title: "Radio DePaul",
-    img: "https://as2.ftcdn.net/v2/jpg/00/58/78/25/1000_F_58782554_iuhH6kivjt3WdoVXkPeRqhLzEvqWQmny.jpg",
+    img: "/Radio_DePaul.png",
     link: "https://radiodepaul.com/",
+    classes: "rounded-full",
   },
 ];
 ---
 
 <MainLayout title="Sam Mroz Portfolio & Work">
   <div class="flex flex-col gap-8">
-    <QuadGridThing client:only items={gridItems} />
+    <FocusableGrid className="grid-cols-1 md:grid-cols-2">
+      <FocusableGrid.Contents>
+        {
+          gridItems.map((item, index) => (
+            <FocusableGrid.Content
+              index={index}
+              className="flex flex-col gap-4"
+              client:load
+            >
+              <h1 class="w-fit self-center border-b border-primary text-center text-6xl font-bold">
+                <a href={item.link} target="_blank">
+                  {item.title}
+                </a>
+              </h1>
+              <span class="flex flex-col gap-4 indent-10 text-xl">
+                {item.description.map((content) => (
+                  <p>{content}</p>
+                ))}
+              </span>
+              <h1 class="w-fit self-center border-b border-primary text-center text-4xl font-semibold">
+                My Role
+              </h1>
+              <ul class="flex list-disc flex-col gap-4 pl-6 text-xl">
+                {item.role.map((content) => (
+                  <li>{content}</li>
+                ))}
+              </ul>
+            </FocusableGrid.Content>
+          ))
+        }
+      </FocusableGrid.Contents>
+      <FocusableGrid.Tiles className="grid-cols-1 md:grid-cols-2">
+        {
+          gridItems.map((item, index) => (
+            <FocusableGrid.Tile
+              className={cn(
+                "aspect-square bg-transparent transition-transform duration-300 hover:scale-[1.01] hover:bg-transparent",
+                item.classes,
+              )}
+              index={index}
+              style={{
+                backgroundSize: "cover",
+                backgroundImage: `url('${item.img}')`,
+              }}
+              client:load
+            />
+          ))
+        }
+      </FocusableGrid.Tiles>
+    </FocusableGrid>
     <Separator />
     <section class="flex flex-col gap-2">
       <h1 class="text-4xl font-bold">Certifications</h1>
-      <ul class="pl-8 list-disc">
+      <ul class="list-disc pl-8">
         <li class="text-lg">Google Analytics</li>
         <li class="text-lg">Content Marketing (HubSpot)</li>
         <li class="text-lg">SEO Certified (Perfect Search Media)</li>

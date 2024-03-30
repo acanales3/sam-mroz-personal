@@ -1,25 +1,124 @@
 ---
 import { Separator } from "@/components/ui/separator";
 import MainLayout from "../layouts/main-layout.astro";
+import { FocusableGrid } from "@/components/focusable-grid";
+
+const courseGroups = [
+  {
+    title: "Multimedia",
+    img: "https://cdn.pixabay.com/photo/2017/07/31/23/38/video-2562034_960_720.jpg",
+    courses: [
+      {
+        name: "Adobe Creative Cloud Workshops: Audition, InDesign",
+        description:
+          "Offered a hands-on experience using Adobe Creative Cloud software in a communication and media context. Topics included Premiere, InDesign, Photoshop, Audition, and Illustrator.",
+      },
+      {
+        name: "News Reporting",
+        description:
+          "Story generation and interview techniques were examined while exploring how databases and documents can enhance a story, including the use of surveys, field experiments and participant observation.",
+      },
+      {
+        name: "Online Reporting and Production",
+        description:
+          "An introduction to both conceptual and technical skills in multimedia reporting, assignments allowed students to grasp online journalism concepts and apply them to real-world scenarios, using Chicago as a testing ground for innovative reporting ideas. The final project culminated in a 5 minute multimedia story that documented the path of rising filmmakers through Chicago's independent film scene.",
+      },
+      {
+        name: "Podcasting",
+        description:
+          "A breakdown of the evolving audio industry, walking through the steps of recording, editing, and producing various dynamic audio pieces including podcasts, documentaries, commercials, and more. Culminated in the production of two weekly podcast shows dedicated to the analysis, commentary, and news developments within the entertainment industry",
+      },
+      {
+        name: "On Air Interviewing",
+        description:
+          "Discussed the most effective ways to get what you need out of your interviews, including proven techniques to connect with a subject/audience; how to use emphasis for impact; understanding your subject and the importance of research in successful interviews; the role of body language in speaking; and understanding your voice, how it works and how to best use it to get what you want from your subject(s).",
+      },
+    ],
+  },
+  {
+    title: "Business Analytics",
+    img: "https://cdn.pixabay.com/photo/2015/01/08/18/27/startup-593341_960_720.jpg",
+    courses: [
+      {
+        name: "Business Analytics",
+        description:
+          "Focused on the growing role of big data and the quantitative strategies that businesses employ to inform decisions. Analyzed business cases in which data helped businesses make better decisions, exposing them to real world applications of analytics while introducing students statistical techniques and spreadsheet software, including Tableau and Excel.",
+      },
+      {
+        name: "Social Media Analytics",
+        description:
+          "Focused on looking at data behind social media likes, retweets, and upvotes to analyze and determine what works. Learned how to collect and analyze data, differentiate the importance of various statistics, use different measurement tools, and learn advanced measurement tactics while earning a certification in Google Analytics",
+      },
+      {
+        name: "Data Analysis",
+        description:
+          "Application of statistical concepts and techniques to a variety of problems in IT areas and other disciplines, using a statistical package for simple data analysis. Course topics included descriptive statistics, probability rules, sampling, distributions, confidence intervals, correlation, regression and hypothesis testing.",
+      },
+      {
+        name: "Intro to Computational Reasoning",
+        description:
+          "Analyzed and designed solutions to problems, using computational tools to manipulate, analyze and visualize data. Topics included the representation of data, the design and understanding of algorithms, programming, and the use of abstraction in designing and analyzing computational solutions, within the context of coding languages that included CSS, HTML, Python, and JavaScript.",
+      },
+    ],
+  },
+  {
+    title: "Media Studies",
+    img: "https://cdn.pixabay.com/photo/2018/07/06/19/48/charles-chaplin-3521070_960_720.jpg",
+    courses: [
+      {
+        name: "Media and Cultural Studies",
+        description:
+          "A theoretical and methodological background in the interdisciplinary field of cultural studies, which considers media and culture as sites for the construction and contestation of race, class, gender, ethnicity, sexuality and nation. The course provided a foundation in critical cultural studies, ideology critique, critical race and gender studies, transnational media studies and active audience studies.",
+      },
+      {
+        name: "Beyond Parasite: South Korea through Film",
+        description:
+          "Examined films from various periods of Korean history such as postwar cinema, the renaissance of the 1990s-2000s, and the modern era which will include blockbusters, independent films, and Academy Award winning projects. Viewed through an examination of recurring themes such as tradition, national division, gender, colonialism, and identity.",
+      },
+      {
+        name: "Media Ethics",
+        description:
+          "Examined the underlying ethical theories used when we try to arrive at ethical judgments about right and wrong, concentrating on analyzing the impact of digital entertainment on an individual and society. Culminated in the formulation of elements of an ethical code of conduct for every electronic (social) media, television professional and movie creator.",
+      },
+      {
+        name: "History of Television and Radio",
+        description:
+          "An exploration of various forms of popular culture and their intersection with diverse religious traditions and ethical concerns, examining the marketing in mass media of religious themes in popular culture.",
+      },
+      {
+        name: "Latine American and Latine Film",
+        description:
+          "Approached issues of race, gender, culture, and power dynamics through analyses of a range of important Latin American and Latine films from the 20th and 21st centuries. Analyzed the challenging and problematic ways filmmakers engage notions of ethnicity, culture, identity, sexuality, and citizenship expanding the social, political, and cultural debates on race and gender politics in the region. Topics include questions of north and south relationship, indigeneity, national identity, decoloniality, violence and trauma, imperialism and colonialism, and construction of gender, sexuality, and race.",
+      },
+      {
+        name: "Script to Screen",
+        description:
+          "A history of radio, television, and cable that engaged with elements such as programming, economics, industrial structures, audiences, government and industry policies, and social effects.",
+      },
+    ],
+  },
+];
 ---
 
 <MainLayout title="Sam Mroz Academic Career">
-  <div class="flex flex-col gap-8">
-    <div class="grid grid-cols-2">
+  <div class="flex flex-col gap-6">
+    <div class="flex gap-32">
       <section class="flex flex-col gap-2">
-        <span class="flex gap-3 items-center">
+        <span class="flex items-center gap-3">
           <Separator className="h-12 bg-primary" orientation="vertical" />
-          <h1 class="text-6xl font-bold">Transcript</h1>
+          <h1 class="text-4xl font-bold">Transcript</h1>
         </span>
-        <a href="transcript.pdf" download="sam-mroz-transcript">
+        <a
+          href="Sam_Mroz_Unoffical_Transcript.pdf"
+          download="sam-mroz-transcript"
+        >
           Click to download
         </a>
       </section>
-      <!-- <Separator class="h-16" orientation="vertical" /> -->
       <section class="flex flex-col gap-2 place-self-end">
-        <span class="flex gap-3 items-center">
+        <span class="flex items-center gap-3">
           <Separator className="h-12 bg-primary" orientation="vertical" />
-          <h1 class="text-6xl font-bold">Accolades</h1>
+          <h1 class="text-4xl font-bold">Accolades</h1>
         </span>
         <ul class="list-disc pl-6 text-lg">
           <li>Deans List All Quarters</li>
@@ -28,44 +127,55 @@ import MainLayout from "../layouts/main-layout.astro";
       </section>
     </div>
     <Separator />
-    <section class="flex flex-col gap-4">
-      <span class="flex gap-2 items-center">
-        <Separator className="h-8 bg-primary" orientation="vertical" />
-        <h1 class="text-3xl font-bold">Relevant Course Work</h1>
-      </span>
-      <section class="flex flex-col gap-2 pl-2">
-        <h1 class="text-xl font-semibold">Multimedia Courses</h1>
-        <Separator />
-        <ul class="list-disc pl-6">
-          <li>Adobe Creative Cloud Workshops: Audition, InDesign</li>
-          <li>News Reporting</li>
-          <li>Online Reporting and Production</li>
-          <li>Podcasting</li>
-          <li>On Air Interviewing</li>
-        </ul>
-      </section>
-      <section class="flex flex-col gap-2 pl-2">
-        <h1 class="text-xl font-semibold">Analytics Courses</h1>
-        <Separator />
-        <ul class="list-disc pl-6">
-          <li>Business Analytics</li>
-          <li>Social Media Analytics</li>
-          <li>Data Analysis</li>
-          <li>Intro to Computational Reasoning</li>
-        </ul>
-      </section>
-      <section class="flex flex-col gap-2 pl-2">
-        <h1 class="text-xl font-semibold">Film/TV Studies Courses</h1>
-        <Separator />
-        <ul class="list-disc pl-6">
-          <li>Media and Cultural Studies</li>
-          <li>Beyond Parasite: South Korea through Film</li>
-          <li>Media Ethics</li>
-          <li>History of Television and Radio</li>
-          <li>Latin American and Latin Film</li>
-          <li>Script to Screen</li>
-        </ul>
-      </section>
-    </section>
+    <span class="flex items-center gap-3">
+      <Separator className="h-12 bg-primary" orientation="vertical" />
+      <h1 class="text-4xl font-bold">Relevant Course Work</h1>
+    </span>
+    <FocusableGrid className="flex flex-row gap-8">
+      <FocusableGrid.Tiles className="flex w-48 flex-col gap-2">
+        {
+          courseGroups.map((group, index) => (
+            <FocusableGrid.Tile
+              index={index}
+              className="text-white relative h-48 w-48 bg-transparent shadow-none"
+              client:load
+            >
+              <img
+                src={group.img}
+                class="absolute z-0 h-full w-full rounded-lg object-cover blur-[2px]"
+              />
+              <span class="z-10 text-wrap p-6 [text-shadow:_0_2px_0_rgb(0_0_0_/_80%)]">
+                {group.title}
+              </span>
+            </FocusableGrid.Tile>
+          ))
+        }
+      </FocusableGrid.Tiles>
+      <FocusableGrid.Contents>
+        {
+          courseGroups.map((group, index) => (
+            <FocusableGrid.Content
+              index={index}
+              className="items-start flex flex-col gap-2"
+              client:load
+            >
+              <h1 class="w-full border-b border-primary text-start text-4xl font-bold">
+                {group.title}
+              </h1>
+              <section class="flex flex-col gap-4">
+                {group.courses.map((course) => (
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-xl font-semibold text-muted-foreground">
+                      {course.name}
+                    </h2>
+                    <p class="pl-4">{course.description}</p>
+                  </div>
+                ))}
+              </section>
+            </FocusableGrid.Content>
+          ))
+        }
+      </FocusableGrid.Contents>
+    </FocusableGrid>
   </div>
 </MainLayout>
